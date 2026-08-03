@@ -354,21 +354,24 @@ localStorage.setItem('bm_dismissed','1');
 (function(){
 var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
 if(!lang.startsWith('zh'))return;
-var ZH={"About":"关于","Privacy":"隐私","Contact":"联系","Home":"首页","Generate":"生成","Calculate":"计算","Convert":"转换","Download":"下载","Copy":"复制","Clear":"清空","Reset":"重置","Upload":"上传","Start":"开始","Stop":"停止","Search":"搜索","Views":"浏览","Visitors":"访客","More":"更多","Free online tools":"免费在线工具","Result":"结果","Size":"尺寸","Color":"颜色","Width":"宽度","Height":"高度","Format":"格式","Quality":"质量","Options":"选项","Settings":"设置","Loading...":"加载中…","Processing...":"处理中…","Click to upload":"点击上传","or drag & drop":"或拖拽到此处","No results found":"未找到结果","Try again":"重试","How to Play":"玩法说明","How to Use":"使用方法","FAQ":"常见问题","Free":"免费","Private":"隐私","No signup":"无需注册","No download":"无需下载","No upload":"不上传","Works on mobile":"手机可用","100% Free":"完全免费","Related Tools":"相关工具","Mortgage Calculator":"房贷计算器","Loan Amount":"贷款金额","Interest Rate":"年利率","Loan Term (years)":"贷款年限","Monthly Payment":"月供","Total Interest":"总利息","Total Payment":"还款总额","Amortization Schedule":"还款计划","Month":"月份","Principal":"本金","Balance":"余额","Free mortgage calculator":"免费房贷计算器","Calculate monthly mortgage payments.":"计算房贷月供。","Loan Term":"贷款年限","Monthly payments, total interest, amortization schedule.":"月供、总利息、还款计划。","Calculate monthly mortgage payments":"计算房贷月供","Monthly payments, total interest, amortization schedule":"月供、总利息、还款计划","Interest":"利息"};
+var ZH={"About":"关于","Privacy":"隐私","Contact":"联系","👁️ Views":"👁️ 浏览","Related Tools:":"相关工具：","🏠 Home":"🏠 首页","👤 Visitors":"👤 访客","Home":"首页","More:":"更多：","Age Calculator":"年龄计算器","Pixel Art":"像素画","Word Counter":"字数统计","AI Avatar Generator":"AI 头像生成器","Minesweeper":"扫雷","Frequently Asked Questions":"常见问题","Linux Commands":"Linux 命令","Background Remover":"背景去除","ASCII Art":"ASCII 艺术字","Percentage Calculator":"百分比计算器","BMI Calculator":"BMI 计算器","Password Generator":"密码生成器","2048 Game":"2048 游戏","Countdown Timer":"倒计时","Typing Test":"打字测试","Unit Converter":"单位换算","Wheel Spinner":"转盘","Stopwatch":"秒表","How It Works":"工作原理","Image Resizer":"图片缩放","Color Tool":"取色工具","Use Cases":"使用场景","QR Code Generator":"二维码生成器","Text to Speech":"文字转语音","Mortgage Calculator":"房贷计算器","Play":"播放","Does it work on mobile?":"手机上能用吗？","Snake Game":"贪吃蛇","· More:":"· 更多：","Features":"功能特点","Generate":"生成","AI Avatar":"AI 头像","AI Face Swap":"AI 换脸","📋 Copy":"📋 复制","Is it free?":"免费吗？","Win98 Simulator":"Win98 模拟器","🔗 Related Tools":"🔗 相关工具","JimmyWithFiona — Home":"JimmyWithFiona — 首页","Brick Breaker Game":"打砖块","FunTests — Quizzes":"趣味测试","Convert":"换算","Brick Breaker":"打砖块","⭐ Bookmark this tool":"⭐ 收藏此工具","Quick access for next time — press Ctrl+D":"下次快速访问 — 按 Ctrl+D","Got it":"知道了","Back to top":"回到顶部","🏠 Mortgage Calculator":"🏠 房贷计算器","Calculate":"计算","Calculate monthly payments, total interest, and amortization schedule.":"计算月供、总利息和还款计划。","Loan Amount":"贷款金额","Down Payment":"首付","Interest Rate":"利率","Loan Term":"贷款期限","30 years":"30 年","20 years":"20 年","15 years":"15 年","10 years":"10 年","5 years":"5 年","Monthly Payment":"月供","Total Interest":"总利息","Total Paid":"总还款额","Amortization Schedule (first 12 months)":"还款计划（前 12 个月）","Month":"月份","Payment":"还款额","Principal":"本金","Interest":"利息","Balance":"余额","QR Generator":"二维码生成器","How the Mortgage Calculator Works":"房贷计算器的工作原理","This free mortgage calculator helps you estimate your monthly mortgage payments and total interest costs. Enter your loan amount, down payment, interest rate, and loan term to see a detailed breakdown including a full amortization schedule.":"这款免费房贷计算器帮助你估算月供和总利息支出。输入贷款金额、首付、利率和贷款期限，即可查看详细分解，包括完整的还款计划。","Mortgage Payment Formula":"月供计算公式","The monthly payment is calculated using the standard amortization formula: M = P × [r(1+r)^n] / [(1+r)^n - 1], where M is the monthly payment, P is the principal loan amount, r is the monthly interest rate (annual rate ÷ 12), and n is the total number of monthly payments.":"月供使用标准摊还公式计算：M = P × [r(1+r)^n] / [(1+r)^n - 1]，其中 M 为月供，P 为贷款本金，r 为月利率（年利率 ÷ 12），n 为总月供期数。","Tips for Lowering Your Mortgage":"降低房贷的技巧","Increase your down payment to reduce the principal and potentially avoid PMI.":"增加首付以减少本金，并有可能避免 PMI。","Choose a shorter loan term — 15-year loans typically have lower rates than 30-year loans.":"选择较短的贷款期限 — 15 年期贷款的利率通常低于 30 年期。","Improve your credit score to qualify for better interest rates.":"提高信用评分以获得更优惠的利率。","Compare offers from multiple lenders to find the best rate.":"比较多家贷款机构的报价以找到最佳利率。","Mortgage Calculator © 2026 · Free Mortgage Calculator":"房贷计算器 © 2026 · 免费房贷计算器","Currency Converter":"汇率换算"};
 function walk(node){
 if(node.nodeType===3){
-var t=node.textContent;
-for(var en in ZH){
-if(t.indexOf(en)>=0){
-node.textContent=t.replace(en,ZH[en]);
-}
-}
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
 }else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
 for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
 }
 }
 walk(document.body);
 document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
 })();
 </script>
 <!-- /I18N-FULL -->
